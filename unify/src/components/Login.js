@@ -12,8 +12,8 @@ const Login = () => {
     };
 
     return (
-        <div className="login-container">
-            <form className="login-form" onSubmit={handleSubmit}>
+        <div className="login-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <form className="login-form" onSubmit={handleSubmit} style={{ width: '379px', height: '322px', border: '1px solid #ccc', padding: '20px', borderRadius: '5px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
                 <h2>Login</h2>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
