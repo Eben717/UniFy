@@ -1,14 +1,19 @@
-import React, { useState } from 'react'
+// components/frontend/Login.js
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Email:', email);
         console.log('Password:', password);
-        // Add your login logic here
+
+        // Redirect to homepage after login
+        navigate('/home');
     };
 
     return (
