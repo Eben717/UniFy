@@ -79,6 +79,11 @@ export default function Homepage() {
                         padding: '2rem',
                         textAlign: 'center',
                         transition: 'transform 0.2s',
+                        cursor: 'pointer',
+                        ':hover': {
+                            transform: 'translateY(-5px)',
+                            boxShadow: '0 4px 16px rgba(44,62,80,0.1)',
+                        }
                     }}>
                         <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{feature.icon}</div>
                         <h2 style={{ fontSize: '1.25rem', color: '#2d3a4b', margin: '0.5rem 0' }}>{feature.title}</h2>
