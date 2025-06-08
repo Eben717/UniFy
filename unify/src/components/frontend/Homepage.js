@@ -1,32 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // ✅ Add this
+import { Link } from 'react-router-dom';
+import { FiBarChart2, FiPackage, FiDollarSign, FiUsers } from 'react-icons/fi';
+import { FaHandshake } from 'react-icons/fa'; // Font Awesome for handshake
 
 const features = [
     {
         title: 'Dashboard',
         description: 'Get real-time insights and analytics for your business operations.',
-        icon: '📊',
-        path: '/dashboard', // ✅ Add route path
+        icon: <FiBarChart2 size={40} />,
+        path: '/dashboard',
     },
     {
         title: 'Inventory Management',
         description: 'Track stock levels, orders, sales, and deliveries efficiently.',
-        icon: '📦',
+        icon: <FiPackage size={40} />,
     },
     {
         title: 'Finance',
         description: 'Manage invoices, expenses, and financial reports with ease.',
-        icon: '💰',
+        icon: <FiDollarSign size={40} />,
     },
     {
         title: 'HR & Payroll',
         description: 'Streamline employee management and payroll processing.',
-        icon: '👥',
+        icon: <FiUsers size={40} />,
     },
     {
         title: 'CRM',
         description: 'Enhance customer relationships and sales pipelines.',
-        icon: '🤝',
+        icon: <FaHandshake size={40} />,
     },
 ];
 
@@ -84,7 +86,7 @@ export default function Homepage() {
                             transition: 'transform 0.2s',
                             cursor: 'pointer',
                         }}>
-                            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{feature.icon}</div>
+                            <div style={{ marginBottom: '1rem', color: '#4f8cff' }}>{feature.icon}</div>
                             <h2 style={{ fontSize: '1.25rem', color: '#2d3a4b', margin: '0.5rem 0' }}>{feature.title}</h2>
                             <p style={{ color: '#6b7c93', fontSize: '1rem' }}>{feature.description}</p>
                         </div>
@@ -95,7 +97,7 @@ export default function Homepage() {
                             {content}
                         </Link>
                     ) : (
-                        content
+                        <div key={idx}>{content}</div>
                     );
                 })}
             </main>

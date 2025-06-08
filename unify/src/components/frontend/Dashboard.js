@@ -38,7 +38,7 @@ export default function Dashboard() {
                     alignItems: 'center',
                 }}
             >
-                <span style={{ fontSize: 20, marginRight: 8 }}>←</span> Back to Homepage
+                <span style={{ fontSize: 20, marginRight: 8 }}>←</span> Back
             </button>
 
             <h1 style={{ fontWeight: 700, marginBottom: 24 }}>UniFy Dashboard</h1>
