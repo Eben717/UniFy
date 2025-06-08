@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // ✅ Add this
 
 const features = [
     {
         title: 'Dashboard',
         description: 'Get real-time insights and analytics for your business operations.',
         icon: '📊',
+        path: '/dashboard', // ✅ Add route path
     },
     {
         title: 'Inventory Management',
@@ -57,8 +59,8 @@ export default function Homepage() {
                     boxShadow: '0 2px 8px rgba(79,140,255,0.15)',
                     transition: 'background 0.2s',
                 }}
-                onMouseOver={e => e.currentTarget.style.background = '#2563eb'}
-                onMouseOut={e => e.currentTarget.style.background = '#4f8cff'}
+                    onMouseOver={e => e.currentTarget.style.background = '#2563eb'}
+                    onMouseOut={e => e.currentTarget.style.background = '#4f8cff'}
                 >
                     Get Started
                 </button>
@@ -71,25 +73,31 @@ export default function Homepage() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
                 gap: '2rem',
             }}>
-                {features.map((feature, idx) => (
-                    <div key={idx} style={{
-                        background: '#fff',
-                        borderRadius: '1rem',
-                        boxShadow: '0 2px 12px rgba(44,62,80,0.07)',
-                        padding: '2rem',
-                        textAlign: 'center',
-                        transition: 'transform 0.2s',
-                        cursor: 'pointer',
-                        ':hover': {
-                            transform: 'translateY(-5px)',
-                            boxShadow: '0 4px 16px rgba(44,62,80,0.1)',
-                        }
-                    }}>
-                        <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{feature.icon}</div>
-                        <h2 style={{ fontSize: '1.25rem', color: '#2d3a4b', margin: '0.5rem 0' }}>{feature.title}</h2>
-                        <p style={{ color: '#6b7c93', fontSize: '1rem' }}>{feature.description}</p>
-                    </div>
-                ))}
+                {features.map((feature, idx) => {
+                    const content = (
+                        <div key={idx} style={{
+                            background: '#fff',
+                            borderRadius: '1rem',
+                            boxShadow: '0 2px 12px rgba(44,62,80,0.07)',
+                            padding: '2rem',
+                            textAlign: 'center',
+                            transition: 'transform 0.2s',
+                            cursor: 'pointer',
+                        }}>
+                            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{feature.icon}</div>
+                            <h2 style={{ fontSize: '1.25rem', color: '#2d3a4b', margin: '0.5rem 0' }}>{feature.title}</h2>
+                            <p style={{ color: '#6b7c93', fontSize: '1rem' }}>{feature.description}</p>
+                        </div>
+                    );
+
+                    return feature.path ? (
+                        <Link key={idx} to={feature.path} style={{ textDecoration: 'none' }}>
+                            {content}
+                        </Link>
+                    ) : (
+                        content
+                    );
+                })}
             </main>
             <footer style={{
                 textAlign: 'center',
