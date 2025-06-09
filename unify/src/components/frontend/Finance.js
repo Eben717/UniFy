@@ -1,8 +1,11 @@
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { Button } from '@/components/ui/button';
-import { BarChart, CreditCard, DollarSign, FileText } from 'lucide-react';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/tabs';
+import {
+  FaDollarSign,
+  FaCreditCard,
+  FaChartBar,
+  FaPlus,
+} from 'react-icons/fa';
 
 function Finance() {
   return (
@@ -20,35 +23,29 @@ function Finance() {
         {/* Overview */}
         <TabsContent value="overview">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Card>
-              <CardContent className="p-4 flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted">Total Revenue</p>
-                  <h3 className="text-xl font-semibold">$124,000</h3>
-                </div>
-                <DollarSign className="text-green-500" />
-              </CardContent>
-            </Card>
+            <div className="bg-white rounded-2xl shadow p-4 flex items-center justify-between">
+              <div>
+                <p className="text-sm text-gray-500">Total Revenue</p>
+                <h3 className="text-xl font-semibold">$124,000</h3>
+              </div>
+              <FaDollarSign className="text-green-500 text-2xl" />
+            </div>
 
-            <Card>
-              <CardContent className="p-4 flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted">Total Expenses</p>
-                  <h3 className="text-xl font-semibold">$58,000</h3>
-                </div>
-                <CreditCard className="text-red-500" />
-              </CardContent>
-            </Card>
+            <div className="bg-white rounded-2xl shadow p-4 flex items-center justify-between">
+              <div>
+                <p className="text-sm text-gray-500">Total Expenses</p>
+                <h3 className="text-xl font-semibold">$58,000</h3>
+              </div>
+              <FaCreditCard className="text-red-500 text-2xl" />
+            </div>
 
-            <Card>
-              <CardContent className="p-4 flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted">Net Profit</p>
-                  <h3 className="text-xl font-semibold">$66,000</h3>
-                </div>
-                <BarChart className="text-blue-500" />
-              </CardContent>
-            </Card>
+            <div className="bg-white rounded-2xl shadow p-4 flex items-center justify-between">
+              <div>
+                <p className="text-sm text-gray-500">Net Profit</p>
+                <h3 className="text-xl font-semibold">$66,000</h3>
+              </div>
+              <FaChartBar className="text-blue-500 text-2xl" />
+            </div>
           </div>
         </TabsContent>
 
@@ -56,10 +53,11 @@ function Finance() {
         <TabsContent value="invoices">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-bold">Invoices</h2>
-            <Button>Create Invoice</Button>
+            <button className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+              <FaPlus /> Create Invoice
+            </button>
           </div>
           <div className="bg-white p-4 rounded shadow">
-            {/* Placeholder for invoices table */}
             <p>No invoices available. Connect to DB or API to load data.</p>
           </div>
         </TabsContent>
@@ -68,10 +66,11 @@ function Finance() {
         <TabsContent value="expenses">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-bold">Expenses</h2>
-            <Button>Add Expense</Button>
+            <button className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+              <FaPlus /> Add Expense
+            </button>
           </div>
           <div className="bg-white p-4 rounded shadow">
-            {/* Placeholder for expenses table */}
             <p>No expenses found.</p>
           </div>
         </TabsContent>
